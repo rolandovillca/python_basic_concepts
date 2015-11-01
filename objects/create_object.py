@@ -1,19 +1,24 @@
+# Create an Employee class
 class Employee:
     """Common base class for all employees"""
-    empCount = 0
+    emp_count = 0
 
+    # Create constructor of class.
     def __init__(self, name, salary):
         self.name = name
         self.salary = salary
-        Employee.empCount += 1
+        Employee.emp_count += 1
 
-    def displayCount(self):
-        print "Total Employee %d" % (Employee.empCount)
+    # Define a method
+    def display_count(self):
+        print "Total Employee %d" % (Employee.emp_count)
 
-    def displayEmployee(self):
+    # Define another method
+    def display_employee(self):
         print "Name: %s, Salary: %s" % (self.name, self.salary)
 
-    def printAttributes(self):
+    # Define another method
+    def print_attributes(self):
         print 'Employee.__doc__: ', Employee.__doc__
         print 'Employee.__name__: ', Employee.__name__
         print 'Employee.__module__: ', Employee.__module__
@@ -25,8 +30,8 @@ emp1 = Employee('Zara', 2000)
 emp2 = Employee('Manni', 5000)
 
 # Accessing Attributes:
-emp1.displayEmployee()
-emp2.displayEmployee()
-print 'Total Employee %d' % Employee.empCount
+emp1.display_employee()
+emp2.display_employee()
+print 'Total Employee %d' % Employee.emp_count
 print
-emp1.printAttributes()
+emp1.print_attributes()
