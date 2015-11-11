@@ -13,6 +13,18 @@ result = lambda x: x ** 2
 # Display both results:
 print func(8)
 print result(8)
+print
 
 # We can this example like this:
 # $ python basic_example.py
+
+# Example 2:
+func = lambda x: x * x
+print [func(x) for x in range(10)]
+
+# Example 3:
+# print [lambda x: x*x for item in range(10)] # Only prints function objects.
+print [(lambda x: x*x)(x) for x in range(10)]
+
+# Or much better:
+print [ x*x for x in range(10)]

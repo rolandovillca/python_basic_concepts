@@ -33,7 +33,7 @@ for r in range(5):
 	print value
 print
 
-# EXAMPLE 4:
+# EXAMPLE 5:
 def mymap(aFunc, aSeq):
 	result = []
 	for x in aSeq: result.append(aFunc(x))
@@ -43,11 +43,11 @@ print list(map(sqr, [1,2,3]))
 print mymap(sqr, [1,2,3])
 print
 
-# EXAMPLE 5:
+# EXAMPLE 6:
 result = list(map(ord,'Dostoyevsky'))
 print result
 
-# EXAMPLE 6:
+# EXAMPLE 7:
 # Function that calculates fahrenheit formula
 def fahrenheit(temperature):
     return ((float(9)/5) * temperature + 32)
