@@ -1,22 +1,18 @@
 from collections import defaultdict
 
->>> s = 'mississippi'
->>> d = defaultdict(int)
->>> for k in s:
-...     d[k] += 1
-...
->>> d.items()
-[('i', 4), ('p', 2), ('s', 4), ('m', 1)]
-and
+# Example 1: using int as parameter.
+s = 'mississippi'
+d = defaultdict(int)
+for k in s:
+    d[k] += 1
+d.items()
 
->>> s = [('yellow', 1), ('blue', 2), ('yellow', 3), ('blue', 4), ('red', 1)]
->>> d = defaultdict(list)
->>> for k, v in s:
-...     d[k].append(v)
-...
->>> d.items()
-[('blue', [2, 4]), ('red', [1]), ('yellow', [1, 3])]
-
+# Example 2: Using list as parameter.
+s = [('yellow', 1), ('blue', 2), ('yellow', 3), ('blue', 4), ('red', 1)]
+d = defaultdict(list)
+for k, v in s:
+    d[k].append(v)
+d.items()
 
 # defaultdict means that if an key is not found in the dictionary that instead of a KeyError being thrown a new value is created.
 # The type of this new pair is given by the argument of defaultdict.
@@ -30,33 +26,31 @@ print(someddict[3]) # print int(), thus 0
 # The standard dictionary includes the method setdefault() for retrieving a value and establishing a default if the value does not exist.
 # By contrast, defaultdict lets the caller specify the default(value to be returned) up front when the container is initialized.
 
-callable as its first argument(mandatory)
->>> d_int = defaultdict(int)
->>> d_list = defaultdict(list)
->>> def foo():
-...     return 'default value'
-...
->>> d_foo = defaultdict(foo)
->>> d_int
+# callable as its first argument(mandatory)
+d_int = defaultdict(int)
+d_list = defaultdict(list)
+def foo():
+    return 'default value'
+d_foo = defaultdict(foo)
+d_int
 defaultdict(<type 'int'>, {})
->>> d_list
+d_list
 defaultdict(<type 'list'>, {})
->>> d_foo
+d_foo
 defaultdict(<function foo at 0x7f34a0a69578>, {})
 
 
-**kwargs as its second argument(optional)
->>> d_int = defaultdict(int, a=10, b=12, c=13)
->>> d_int
-defaultdict(<type 'int'>, {'a': 10, 'c': 13, 'b': 12})
-or
-
->>> kwargs = {'a':10,'b':12,'c':13}
->>> d_int = defaultdict(int, **kwargs)
->>> d_int
+# **kwargs as its second argument(optional)
+d_int = defaultdict(int, a=10, b=12, c=13)
+d_int
 defaultdict(<type 'int'>, {'a': 10, 'c': 13, 'b': 12})
 
-How does it works
+kwargs = {'a':10,'b':12,'c':13}
+d_int = defaultdict(int, **kwargs)
+d_int
+defaultdict(<type 'int'>, {'a': 10, 'c': 13, 'b': 12})
+
+# How does it works
 
 As is a child class of standard dictionary, it can perform all the same functions.
 
