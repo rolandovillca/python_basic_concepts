@@ -6,6 +6,9 @@
 # 2. iteritems(): It takes less space and time initially, but a bit more time in generating each element.
 #   dict.iteritems() is a generator that yields 2-tuples
 
+# dict.items(): Return a copy of the dictionary’s list of (key, value) pairs.
+# dict.iteritems(): Return an iterator over the dictionary’s (key, value) pairs.
+
 #!/usr/bin/python
 
 d={1:'one',2:'two',3:'three'}
