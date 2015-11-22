@@ -38,11 +38,11 @@ class Child(Parent):
         print 'This is override method into Child'
 
 # Create instance object of Child
-c = Child()
+child = Child()
 
 # Some methods of child object
-c.child_method()  # child calls its method
-c.parent_method() # calls parent's method
-c.set_attr(200)   # again call parent's method
-c.get_attr()      # again call parent's method
-c.my_method()     # override parent method
+child.child_method()  # child calls its method
+child.parent_method() # calls parent's method
+child.set_attr(200)   # again call parent's method
+child.get_attr()      # again call parent's method
+child.my_method()     # override parent method

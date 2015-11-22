@@ -1,13 +1,18 @@
+# Define global functon.
 def hello():
-    print "global hello"
+    print 'Global hello'
 
-class bla:
+# Create a class.
+class A:
+    # Define local method.
     def hello(self):
         self.thing()
         hello()
 
+    # Define another local method.
     def thing(self):
-        print "hello"
+        print 'Local thing'
 
-b = bla()
-b.hello()
+# Create object from A.
+a = A()
+a.hello()
