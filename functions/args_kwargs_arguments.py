@@ -10,7 +10,8 @@
 # i.e. it allows you pass an arbitrary number of arguments to your function.
 # Similarly, **kwargs allows you to handle named arguments that you have not defined in advance:
 
-# EXAMPLE 1:
+# EXAMPLE 1: You would use *args when you're not sure how many arguments might
+# be passed to your function, i.e. it allows you pass an arbitrary number of arguments to your function:
 # ------------------------------------------------------------------------------
 def print_everything(*args):
     for count, thing in enumerate(args):
@@ -19,7 +20,7 @@ def print_everything(*args):
 print_everything('apple', 'banana', 'cabbage')
 print
 
-# EXAMPLE 2:
+# EXAMPLE 2: Similarly, **kwargs allows you to handle named arguments that you have not defined in advance:
 # ------------------------------------------------------------------------------
 def table_things(**kwargs):
     for name, value in kwargs.items():
@@ -45,7 +46,16 @@ def func(arg, *args, **kwargs):
 
 # func() # It will raise error related to parameters.
 func('required argument')
-print
 func('required argument', 1, 2, '3')
-print
 func('required argument', 1, 2, '3', keyword1=4, keyword2='foo')
+print
+
+# EXAMPLE 4: You can use these along with named arguments too.
+# The explicit arguments get values first and then everything else is passed to *args and **kwargs.
+# The named arguments come first in the list. For example:
+def print_three_things(arg1, arg2, arg3, arg4):
+    print 'arg1 = {0}, arg2 = {1}, arg3 = {2}, arg4 = {3}'.format(arg1, arg2, arg3, arg4)
+
+mylist = ['cat', 'dog', 'cow', 'bird']
+print_three_things(*mylist)
+print
