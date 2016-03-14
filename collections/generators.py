@@ -7,6 +7,7 @@
 my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 # EXAMPLE 1: Square generator:
+# ==============================================================================
 def square_numbers(nums):
     for i in nums:
         yield (i*i)
@@ -15,7 +16,8 @@ for num in nums:
     print num
 
 
-# EXAMPLE 2: Fibonacci generator
+# EXAMPLE 2: Fibonacci generator:
+# ==============================================================================
 def fib(num):
     a, b = 0, 1
     for i in range(0, num):
@@ -27,12 +29,14 @@ for item in fib(10):
 
 
 # EXAMPLE 3: Using existing generator thru comprehentions:
+# ==============================================================================
 squares1 = [num*num for num in my_list]
 print squares1
 print
 
 
 # EXAMPLE 4: Using existing generator thru comprehentions:
+# ==============================================================================
 squares2 = (num*num for num in my_list)
 print list(squares2)
 print

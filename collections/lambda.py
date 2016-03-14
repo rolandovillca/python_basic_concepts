@@ -18,11 +18,14 @@ print
 # We can this example like this:
 # $ python basic_example.py
 
-# Example 2:
+# EXAMPLE 2:
+# ==============================================================================
 func = lambda x: x * x
 print [func(x) for x in range(10)]
 
-# Example 3:
+
+# EXAMPLE 3:
+# ==============================================================================
 # print [lambda x: x*x for item in range(10)] # Only prints function objects.
 print [(lambda x: x*x)(x) for x in range(10)]
 
