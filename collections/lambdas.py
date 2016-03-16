@@ -37,7 +37,7 @@ print [ x*x for x in range(10)]
 print
 
 
-# EXAMPLE 4: Using IFS with lambda
+# EXAMPLE 4: Using "if" statements with lambda
 # ==============================================================================
 # Case 1:
 func1 = lambda x: True if x % 2 == 0 else False
@@ -55,6 +55,7 @@ def if_else(condition, a, b) :
         return a
     else:
         return b
+
 func3 = lambda x : if_else(x>100, 'big number', 'little number')
 func3(100)
 func3(1000)
