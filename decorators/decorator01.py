@@ -1,6 +1,5 @@
-# EXAMPLE 1:
-# ==========
-# A very simple function:
+# EXAMPLE 1: A very simple function:
+# ==============================================================================
 def greeter():
     print 'Hello'
 
@@ -12,9 +11,8 @@ def repeat(fn, times):
 repeat(greeter, 3)
 print
 
-# EXAMPLE 2:
-# ==========
-# Example of nested functions:
+# EXAMPLE 2: Example of nested functions:
+# ==============================================================================
 # It hides utility functions in the scope of he function that uses them:
 def print_integers(values):
     def is_integer(value):
@@ -29,9 +27,8 @@ def print_integers(values):
 print_integers([1, 2, 3, "4", "parrot", 3.14, 8, 9])
 print
 
-# EXAMPLE 3:
-# ==========
-# Adding a trace output to a function:
+# EXAMPLE 3: Adding a trace output to a function:
+# ==============================================================================
 def print_call(fn):
     def fn_wrap(*args, **kwargs):
         print("Calling %s" % (fn.func_name))
