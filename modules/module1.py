@@ -1,4 +1,4 @@
-#file module1.py
+# file module1.py
 
 # When the Python interpreter reads a source file, it executes all of the code found in it.
 # Before executing the code, it will define a few special variables.
@@ -11,6 +11,7 @@ def func():
 
 print 'Top-level in %s' % (__name__)
 
+# Run the maion program:
 if __name__ == '__main__':
     print 'module1.py is being run directly'
 else:

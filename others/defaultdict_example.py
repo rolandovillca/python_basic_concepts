@@ -1,6 +1,7 @@
 from collections import defaultdict
 
-# Example 1: using int as parameter.
+# EXAMPLE 1: using int as parameter:
+# ==============================================================================
 mississippi = 'mississippi'
 d = defaultdict(int)
 for key in mississippi:
@@ -9,23 +10,36 @@ print 'Example 1:'
 print d.items()
 print
 
-# Example 2: Using list as parameter.
+# EXAMPLE 2: Using list as parameter:
+# ==============================================================================
 colors = [('yellow', 1), ('blue', 2), ('yellow', 3), ('blue', 4), ('red', 1)]
 d = defaultdict(list)
+
 for key, value in colors:
     d[key].append(value)
+
 print 'Example 2:'
 print d.items()
 print
 
-# defaultdict means that if an key is not found in the dictionary that instead of a KeyError being thrown a new value is created.
+# EXAMPLE 3:
+# ==============================================================================
+# defaultdict means that if an key is not found in the dictionary
+# that instead of a KeyError being thrown a new value is created.
+#
 # The type of this new pair is given by the argument of defaultdict.
 someddict = defaultdict(int)
 print(someddict[3]) # print int(), thus 0
 print
 
-# The standard dictionary includes the method setdefault() for retrieving a value and establishing a default if the value does not exist.
-# By contrast, defaultdict lets the caller specify the default(value to be returned) up front when the container is initialized.
+# EXAMPLE 4:
+# ==============================================================================
+# The standard dictionary includes the method setdefault() for retrieving a
+# value and establishing a default if the value does not exist.
+#
+# By contrast, the defaultdict lets the caller specify the
+# default(value to be returned) up front when the container is initialized.
+#
 # Notes:
 # Callable as its first argument(mandatory)
 def func():
@@ -39,12 +53,14 @@ print dic_list
 print dic_foo
 print
 
-# Initialize dictionary with ints, second argument is optional.
+# EXAMPLE 5: Initialize dictionary with ints, second argument is optional:
+# ==============================================================================
 dic_int = defaultdict(int, a=10, b=12, c=13)
 print dic_int
 print
 
-# Initialize dictionary with int, and **kwargs as its second argument(optional)
+# EXAMPLE 6: Initialize dictionary with int, and **kwargs as its second argument(optional):
+# ==============================================================================
 kwargs = {'a':10,'b':12,'c':13}
 dic_int = defaultdict(int, **kwargs)
 print dic_int
@@ -63,6 +79,8 @@ dic_int.default_factory = lambda: 1
 dic_int['e']
 dic_int
 
+# EXAMPLE 7:
+# ==============================================================================
 def foo():
     return 2
 
@@ -70,7 +88,8 @@ dic_int.default_factory = foo
 dic_int['f']
 dic_int
 
-# Another example, lambda with default value as string.
+# EXAMPLE 8: Another example, lambda with default value as string:
+# ==============================================================================
 ice_cream = defaultdict(lambda: 'Vanilla')
 ice_cream['Sarah'] = 'Chunky Monkey'
 ice_cream['Abdul'] = 'Butter Pecan'

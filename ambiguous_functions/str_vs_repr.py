@@ -1,4 +1,5 @@
 # EXAMPLE 1: str vs repr
+# ==============================================================================
 # The goal of __repr__ is to be unambiguous
 # The goal of __str__ is to be readable
 

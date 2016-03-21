@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
-# EXAMPLE 1:
-# Function definition is here
+# EXAMPLE 1: Function definition is here:
+# ==============================================================================
 def printme(str):
     "This prints a passed string into this function"
     print str
@@ -11,8 +11,8 @@ def printme(str):
 if __name__ == '__main__':
     printme(str = "Hi Rolando, sending from a function with keyword parameters")
 
-# EXAMPLE 2:
-# Function definition here
+# EXAMPLE 2: Function definition here:
+# ==============================================================================
 def printinfo(name, age):
     "This prints a passed info this function"
     print 'Name: %s' % (name)
