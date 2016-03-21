@@ -12,7 +12,7 @@
 
 # EXAMPLE 1: You would use *args when you're not sure how many arguments might
 # be passed to your function, i.e. it allows you pass an arbitrary number of arguments to your function:
-# ------------------------------------------------------------------------------
+# ==============================================================================
 def print_everything(*args):
     for count, thing in enumerate(args):
         print '{0}. {1}'.format(count, thing)
@@ -20,8 +20,8 @@ def print_everything(*args):
 print_everything('apple', 'banana', 'cabbage')
 print
 
-# EXAMPLE 2: Similarly, **kwargs allows you to handle named arguments that you have not defined in advance:
-# ------------------------------------------------------------------------------
+# EXAMPLE 2: The **kwargs allows you to handle named arguments that you have not defined in advance:
+# ==============================================================================
 def table_things(**kwargs):
     for name, value in kwargs.items():
         print '{0} = {1}'.format(name, value)
@@ -29,7 +29,7 @@ def table_things(**kwargs):
 table_things(apple = 'fruit', cabbage = 'vegetable')
 
 # EXAMPLE 3: Using une function with 3 different types of parameters:
-# ------------------------------------------------------------------------------
+# ==============================================================================
 def func(arg, *args, **kwargs):
     # arg is a positional-only parameter.
     print arg
@@ -50,7 +50,8 @@ func('required argument', 1, 2, '3')
 func('required argument', 1, 2, '3', keyword1=4, keyword2='foo')
 print
 
-# EXAMPLE 4: You can use these along with named arguments too.
+# EXAMPLE 4: You can use these along with named arguments too:
+# ==============================================================================
 # The explicit arguments get values first and then everything else is passed to *args and **kwargs.
 # The named arguments come first in the list. For example:
 def print_three_things(arg1, arg2, arg3, arg4):

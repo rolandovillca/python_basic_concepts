@@ -1,4 +1,5 @@
 # EXAMPLE 1:
+# ==============================================================================
 def dollar(in_fnc):
 	def out_fnc(in_fnc):
 		return '$' + str(in_fnc)
@@ -11,7 +12,8 @@ def price(amount):
 print price(1000)
 print
 
-#EXAMPLE 2:
+# EXAMPLE 2:
+# ==============================================================================
 def pound1(in_fnc):
 	def out_fnc(in_fnc):
 		return (u"\u00A3").encode('utf-8') + str(in_fnc)
@@ -23,7 +25,8 @@ def price1(amount):
 
 print price1(100)
 
-#EXAMPLE 3: WOW!!!
+# EXAMPLE 3: WOW!!!
+# ==============================================================================
 def count(f):
 	def inner(*args, **kargs):
 		inner.counter += 1
@@ -42,6 +45,7 @@ my_fnc()
 print 'my_fnc.counter', my_fnc.counter
 
 #EXAMPLE 4:
+# ==============================================================================
 import time
 def timer(fn):
 	def inner(*args, **kargs):
@@ -57,6 +61,7 @@ def my_fnc2():
 my_fnc2()
 
 # EXAMPLE 5:
+# ==============================================================================
 def bold(f):
     def wrapped():
         return '<b>' + f() + '</b>'

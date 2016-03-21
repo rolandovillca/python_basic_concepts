@@ -1,3 +1,5 @@
+# EXAMPLE:
+# ==============================================================================
 def print_call(fn):
     def fn_wrap(*args, **kwargs):
         print("Calling %s with arguments: \n\targs: %s\n\tkwargs:%s" % (fn.__name__, args, kwargs))

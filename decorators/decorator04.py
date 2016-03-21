@@ -1,3 +1,5 @@
+# EXAMPLE 1:
+# ==============================================================================
 def p_decorate(func):
    def func_wrapper(name):
        return "<p>{0}</p>".format(func(name))
@@ -18,6 +20,7 @@ def get_text(name):
 
 get_text = div_decorate(p_decorate(strong_decorate(get_text)))
 
+# Calling functions
 @div_decorate
 @p_decorate
 @strong_decorate

@@ -1,7 +1,7 @@
 # A callable is anything that can be called.
 
 # EXAMPLE 1:
-# ==========
+# ==============================================================================
 class Foo:
     def __call__(self):
         print 'called'
@@ -10,7 +10,7 @@ foo = Foo()
 foo()
 
 # EXAMPLE 2:
-# ==========
+# ==============================================================================
 # Have you ever wandered if we could make an object callable? Yes,
 # I mean just use the object name as if you were calling function! Intersted?
 class Add:
@@ -26,7 +26,7 @@ add = Add(1, 2)
 print add()
 
 # EXAMPLE 3:
-# ==========
+# ==============================================================================
 class Cached:
     def __init__(self, function):
         self.function = function
@@ -46,7 +46,7 @@ def ack(x, y):
 print ack(2, 4)
 
 # EXAMPLE 4:
-# ==========
+# ==============================================================================
 # A callable is an object allows you to use round parenthesis ( )
 # and eventually pass some parameters, just like functions.
 
