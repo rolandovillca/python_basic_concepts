@@ -88,3 +88,56 @@ with MyClass() as x:
     # Printed "End of block with 456"
     print x   # 123
 # Printted "End of block with 123"
+
+
+# EXAMPLE 4:
+# ==============================================================================
+'''
+The contextlib module contains utilities for working with context managers and the with statement.
+
+Note Context managers are tied to the with statement.
+Since with is officially part of Python 2.6,
+you have to import it from __future__ before using contextlib in Python 2.5.
+
+A context manager is enabled by the with statement, and the API involves two methods.
+The __enter__() method is run when execution flow enters the code block inside the with.
+It returns an object to be used within the context.
+When execution flow leaves the with block, the __exit__() method of the context manager
+is called to clean up any resources being used.
+'''
+class Context(object):
+
+    def __init__(self):
+        print '__init__()'
+
+    def __enter__(self):
+        print '__enter__()'
+        return self
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        print '__exit__()'
+        
+with Context():
+    print 'Doing work in the context'
+
+
+# EXAMPLE 6: Return a context manager that closes thing upon completion of the block:
+# ==============================================================================
+from contextlib import contextmanager
+
+@contextmanager
+def closing(thing):
+    try:
+        yield thing
+    finally:
+        thing.close()
+
+# And lets you write code like this:
+from contextlib import closing
+import urllib
+
+with closing(urllib.urlopen('http://www.python.org')) as page:
+    for line in page:
+        print line
+# without needing to explicitly close page.
+# Even if an error occurs, page.close() will be called when the with block is exited.
