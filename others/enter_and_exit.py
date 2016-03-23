@@ -121,7 +121,7 @@ with Context():
     print 'Doing work in the context'
 
 
-# EXAMPLE 6: Return a context manager that closes thing upon completion of the block:
+# EXAMPLE 5: Return a context manager that closes thing upon completion of the block:
 # ==============================================================================
 from contextlib import contextmanager
 
@@ -141,3 +141,27 @@ with closing(urllib.urlopen('http://www.python.org')) as page:
         print line
 # without needing to explicitly close page.
 # Even if an error occurs, page.close() will be called when the with block is exited.
+
+
+# EXAMPLE 6: Return a context manager that closes thing upon completion of the block:
+# ==============================================================================
+'''
+Context managers allow you to allocate and release resources precisely when you want to.
+The most widely used example of context managers is the with statement.
+Suppose you have two related operations which you’d like to execute as a pair,
+with a block of code in between. Context managers allow you to do specifically that.
+'''
+class File(object):
+    def __init__(self, file_name, method):
+        self.file_obj = open(file_name, method)
+
+    def __enter__(self):
+        return self.file_obj
+
+
+    def __exit__(self, type, value, traceback):
+        self.file_obj.close()
+
+# Just by defining __enter__ and __exit__ methods we can use it in a with statement.
+with File('demo.txt', 'w') as opened_file:
+    opened_file.write('Hola!')
