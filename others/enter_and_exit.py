@@ -17,6 +17,8 @@ A useful example could be a database connection object (which then automagically
 closes the connection once the corresponding 'with'-statement goes out of scope:
 '''
 
+# EXAMPLE 1:
+# ==============================================================================
 class DatabaseConnection(object):
     def __enter__(self):
         # Make database connection and return it.
@@ -32,3 +34,48 @@ class DatabaseConnection(object):
 
 with DatabaseConnection() as mydbconn:
     # Do stuff.
+
+
+# EXAMPLE 2:
+# ==============================================================================
+class Rectangle:
+    def __init__(self, width, heigth):
+        self.width = width
+        self.heigth = heigth
+    
+    def __enter__(self):
+        print 'in __enter__'
+        return self
+
+    def __exit__(self, exception_type, exception_value, traceback):
+        print '__exit__'
+
+    def device_by_zero(self):
+        # Causes ZeroDivisionError exception
+        return self.width / 0
+
+with Rectangle(3, 4) as rectangle:
+    # Exception successfully pass to __exit__
+    rectangle.device_by_zero()
+
+# Output should be:
+# "in __enter__"
+# "in __exit__"
+# Traceback (most recent call last):
+#   File "e0235.py", line 27, in <module>
+#     r.divide_by_zero()
+
+
+# EXAMPLE 3:
+# ==============================================================================
+class MyClass(object):
+    def __enter__(self):
+        if moon_phase > 0:
+            self.returnval = 123
+        else:
+            self.returnval = 456
+        return returnval
+
+    def __exit__(self, *args):
+        number = self.returnval
+        print 'End of block with', number
