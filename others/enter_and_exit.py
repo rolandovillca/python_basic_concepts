@@ -79,3 +79,12 @@ class MyClass(object):
     def __exit__(self, *args):
         number = self.returnval
         print 'End of block with', number
+
+with MyClass() as x:
+    print x   # 123
+    with MyClass() as y:
+        print x, 'and', y   # 123 and 456
+
+    # Printed "End of block with 456"
+    print x   # 123
+# Printted "End of block with 123"
