@@ -165,3 +165,28 @@ class File(object):
 # Just by defining __enter__ and __exit__ methods we can use it in a with statement.
 with File('demo.txt', 'w') as opened_file:
     opened_file.write('Hola!')
+
+
+# EXAMPLE 7:
+# ==============================================================================
+import sqlite3
+
+class DataConn(object):
+
+    # Constructor
+    def __init__(self, db_name):
+        self.db_name = db_name
+
+    # Open the database connection
+    def __enter__(self):
+        self.conn = sqlite3.connect(self.db_name)
+        return self.conn
+
+    # Close connection
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.conn.close()
+
+if __name__ == "__main__":
+    db = '/home/mdriscoll/test.db'
+    with DataConn(db) as conn:
+        cursor = conn.cursor()
