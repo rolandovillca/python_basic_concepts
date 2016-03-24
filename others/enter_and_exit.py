@@ -123,6 +123,7 @@ with Context():
 
 # EXAMPLE 5: Return a context manager that closes thing upon completion of the block:
 # ==============================================================================
+# Creating a Context Manager using contextlib.
 from contextlib import contextmanager
 
 @contextmanager
@@ -190,3 +191,27 @@ if __name__ == "__main__":
     db = '/home/mdriscoll/test.db'
     with DataConn(db) as conn:
         cursor = conn.cursor()
+
+# EXAMPLE 8: Creating a Context Manager using contextlib:
+# ==============================================================================
+'''
+Python 2.5 not only added the with statement, but it also added the contextlib module.
+This allows us to create a context manager using contextlib’s contextmanager function as a decorator.
+'''
+from contextlib import contextmanager
+
+@contextmanager
+def file_open(path):
+    try:
+        f_obj = open(path, 'w')
+        yield f_obj
+    except OSError:
+        print 'We had an error!'
+    finally:
+        print 'closing the file'
+        f_obj.cose()
+
+# Implement example 8:
+if __name__ == '__main__':
+    with file_open('/home/mdriscoll/test.txt') as fobj:
+        fobj.write('Testing context manager')
