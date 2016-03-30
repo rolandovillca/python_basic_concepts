@@ -2,9 +2,8 @@
 # -*- coding: utf-8 -*-
 
 class GreekGetter(object):
-    '''
-    A simple localizer a la gettext.
-    '''
+
+    ''' A simple localizer a la gettext. '''
 
     def __init__(self):
         self.translator = dict(dog='Sparky', cat='Tom')
@@ -14,17 +13,15 @@ class GreekGetter(object):
         return self.translator.get(message_id, str(message_id))
 
 class EnglishGetter(object):
-    '''
-    Simple echoes the message ids.
-    '''
+
+    ''' Simple echoes the message ids. '''
 
     def get(self, message_id):
         return str(message_id)
 
 def get_localizer(language='English'):
-    '''
-    The factory method.
-    '''
+
+    ''' The factory method. '''
 
     languages = dict(English=EnglishGetter, Greek=GreekGetter)
     return languages[language]()
