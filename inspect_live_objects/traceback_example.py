@@ -10,7 +10,11 @@ the variables sys.exc_traceback (deprecated)
 and sys.last_traceback and returned as the third item from sys.exc_info().
 '''
 
-This simple example implements a basic read-eval-print loop, similar to (but less useful than) the standard Python interactive interpreter loop. For a more complete implementation of the interpreter loop, refer to the code module.
+# EXAMPLE 1:
+# ==============================================================================
+# This simple example implements a basic read-eval-print loop,
+# similar to (but less useful than) the standard Python interactive interpreter loop.
+# For a more complete implementation of the interpreter loop, refer to the code module.
 
 import sys, traceback
 
@@ -27,8 +31,10 @@ def run_user_code(envdir):
 envdir = {}
 while 1:
     run_user_code(envdir)
-The following example demonstrates the different ways to print and format the exception and traceback:
 
+
+# EXAMPLE 2: Demonstrates the different ways to print and format the exception and traceback:
+# ==============================================================================
 import sys, traceback
 
 def lumberjack():
@@ -62,21 +68,19 @@ except IndexError:
     print "*** tb_lineno:", exc_traceback.tb_lineno
 
 
-The following example shows the different ways to print and format the stack:
+# EXAMPLE 3: This example shows the different ways to print and format the stack:
+# ==============================================================================
+import traceback
+def another_function():
+    lumberstack()
 
->>>
->>> import traceback
->>> def another_function():
-...     lumberstack()
-...
->>> def lumberstack():
-...     traceback.print_stack()
-...     print repr(traceback.extract_stack())
-...     print repr(traceback.format_stack())
+def lumberstack():
+    traceback.print_stack()
+    print repr(traceback.extract_stack())
+    print repr(traceback.format_stack())
 
-This last example demonstrates the final few formatting functions:
 
->>>
->>> import traceback
->>> traceback.format_list([('spam.py', 3, '<module>', 'spam.eggs()'),
-...                        ('eggs.py', 42, 'eggs', 'return "bacon"')])
+# EXAMPLE 4: This last example demonstrates the final few formatting functions:
+# ==============================================================================
+import traceback
+traceback.format_list([('spam.py', 3, '<module>', 'spam.eggs()'), ('eggs.py', 42, 'eggs', 'return "bacon"')])
