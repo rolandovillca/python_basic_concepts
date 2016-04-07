@@ -12,16 +12,47 @@ from collections import namedtuple
 
 Person = namedtuple('Person', 'name age gender')
 print 'Type of Person:', type(Person)
-print
 
 bob = Person(name='Bob', age=30, gender='male')
 print 'Bob:', bob
-print
 
 jane = Person(name='Jane', age=29, gender='female')
 print 'Jane.name:', jane.name
-print
 
 print 'Fields by index:'
 for person in [ bob, jane ]:
     print '{} is a {} year old {}'.format(person[0], person[1], person[2])
+
+
+# EXAMPLE 2:
+# ==============================================================================
+# Here we create an Employee namedtuple with three fields.
+# We pass a list to collections.namedtuple to specify field names id, title and salary.
+
+# Specify the Employee namedtuple.
+Employee = namedtuple('Employee', ['id', 'title', 'salary'])
+
+# Create Employee instance.
+employee = Employee(1, 'engineer', 10000)
+
+# Display Employee.
+print
+print employee
+print 'Title is: ', employee.title
+print
+
+
+# EXAMPLE 3:
+# ==============================================================================
+import collections
+
+# A namedtuple type.
+Style = collections.namedtuple('Style', ['color', 'size', 'width'])
+
+# A list containing three values.
+values = ['red', 10, 15]
+
+# Make a namedtuple from the list.
+tuple = Style._make(values)
+print tuple
+print
