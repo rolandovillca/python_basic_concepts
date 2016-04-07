@@ -1,14 +1,17 @@
-# The **kwargs allows you to pass keyworded variable length of arguments to a function.
-# You should use **kwargs if you want to handle named arguments in a function.
+'''
+The **kwargs allows you to pass keyworded variable length of arguments to a function.
+You should use **kwargs if you want to handle named arguments in a function.
 
-# *args = list of arguments -as positional arguments
-# **kwargs = dictionary - whose keys become separate keyword arguments and
-# the values become values of these arguments.
+*args = list of arguments -as positional arguments
+**kwargs = dictionary - whose keys become separate keyword arguments and
+the values become values of these arguments.
 
-# The syntax is the * and **. The names *args and **kwargs are only by convention but there's no hard requirement to use them.
-# You would use *args when you're not sure how many arguments might be passed to your function, 
-# i.e. it allows you pass an arbitrary number of arguments to your function.
-# Similarly, **kwargs allows you to handle named arguments that you have not defined in advance:
+The syntax is the * and **. The names *args and **kwargs are only by convention but there's no hard requirement to use them.
+You would use *args when you're not sure how many arguments might be passed to your function, 
+i.e. it allows you pass an arbitrary number of arguments to your function.
+Similarly, **kwargs allows you to handle named arguments that you have not defined in advance:
+'''
+
 
 # EXAMPLE 1: You would use *args when you're not sure how many arguments might
 # be passed to your function, i.e. it allows you pass an arbitrary number of arguments to your function:
@@ -20,6 +23,7 @@ def print_everything(*args):
 print_everything('apple', 'banana', 'cabbage')
 print
 
+
 # EXAMPLE 2: The **kwargs allows you to handle named arguments that you have not defined in advance:
 # ==============================================================================
 def table_things(**kwargs):
@@ -27,6 +31,7 @@ def table_things(**kwargs):
         print '{0} = {1}'.format(name, value)
 
 table_things(apple = 'fruit', cabbage = 'vegetable')
+
 
 # EXAMPLE 3: Using une function with 3 different types of parameters:
 # ==============================================================================
@@ -49,6 +54,7 @@ func('required argument')
 func('required argument', 1, 2, '3')
 func('required argument', 1, 2, '3', keyword1=4, keyword2='foo')
 print
+
 
 # EXAMPLE 4: You can use these along with named arguments too:
 # ==============================================================================

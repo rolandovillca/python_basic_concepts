@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+
 # EXAMPLE 1: Function definition is here:
 # ==============================================================================
 def printme(str):
@@ -10,6 +11,7 @@ def printme(str):
 # Now you can call printname function
 if __name__ == '__main__':
     printme(str = "Hi Rolando, sending from a function with keyword parameters")
+
 
 # EXAMPLE 2: Function definition here:
 # ==============================================================================

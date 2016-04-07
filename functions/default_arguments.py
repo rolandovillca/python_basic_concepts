@@ -1,6 +1,9 @@
 #!/usr/bin/python
 
-# A default argument is an argument that assumes a default value if a value is not provided in the function call for that argument.
+'''
+A default argument is an argument that assumes a default value if a value
+is not provided in the function call for that argument.
+'''
 
 #Function definition is here
 def printinfo(name, age = 35):

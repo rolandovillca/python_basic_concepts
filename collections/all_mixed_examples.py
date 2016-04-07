@@ -31,9 +31,8 @@ map(lambda for v: v * 5, for filter(lambda for v: if v % 2, in x)) # "pseudo" la
 map(lambda v : v * 5, filter(lambda u : u % 2, x)) # Lambda, just a 'rearrangement' of what we had before
 
 
-# EXAMPLE 5:
+# EXAMPLE 5: Nested comprehencions:
 # ==============================================================================
-# Nested comprehencions:
 x = [2, 3, 4]
 y = [4, 5]
 z = [v + w for v in x for w in y]

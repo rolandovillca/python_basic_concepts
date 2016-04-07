@@ -1,5 +1,7 @@
-# The map(aFunction, aSequence) function applies a passed-in function to each item in an iterable object
-# and returns a list containing all the function call results.
+'''
+The map(aFunction, aSequence) function applies a passed-in function to each item
+in an iterable object and returns a list containing all the function call results.
+'''
 
 # EXAMPLE 1:
 # ==============================================================================
