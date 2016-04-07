@@ -3,8 +3,11 @@
 *==* checks that 2 arguments have the same value.
 
 There is a simple rule of thumb to tell you when to use == or is:
-    == is for value equality. Use it when you would like to know if two objects have the same value.
-    IS is for reference equality. Use it when you would like to know if two references refer to the same object.
+    == is for value equality. Use it when you would like to know if two objects
+    have the same value.
+
+    IS is for reference equality. Use it when you would like to know if two
+    references refer to the same object.
 '''
 
 # EXAMPLE 1: Double equals vs is in python:
