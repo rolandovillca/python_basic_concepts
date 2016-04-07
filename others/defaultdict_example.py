@@ -6,6 +6,7 @@ mississippi = 'mississippi'
 d = defaultdict(int)
 for key in mississippi:
     d[key] += 1
+
 print 'Example 1:'
 print d.items()
 print
@@ -29,6 +30,7 @@ print
 #
 # The type of this new pair is given by the argument of defaultdict.
 someddict = defaultdict(int)
+print 'Example 3:'
 print(someddict[3]) # print int(), thus 0
 print
 
@@ -48,6 +50,7 @@ def func():
 dic_int = defaultdict(int)
 dic_list = defaultdict(list)
 dic_foo = defaultdict(func)
+print 'Example 4:'
 print dic_int
 print dic_list
 print dic_foo
@@ -56,6 +59,7 @@ print
 # EXAMPLE 5: Initialize dictionary with ints, second argument is optional:
 # ==============================================================================
 dic_int = defaultdict(int, a=10, b=12, c=13)
+print 'Example 5:'
 print dic_int
 print
 
@@ -63,6 +67,7 @@ print
 # ==============================================================================
 kwargs = {'a':10,'b':12,'c':13}
 dic_int = defaultdict(int, **kwargs)
+print 'Example 6:'
 print dic_int
 print
 
@@ -93,5 +98,6 @@ dic_int
 ice_cream = defaultdict(lambda: 'Vanilla')
 ice_cream['Sarah'] = 'Chunky Monkey'
 ice_cream['Abdul'] = 'Butter Pecan'
+print 'Example 8:'
 print ice_cream['Sarah']
 print ice_cream['Joe']
