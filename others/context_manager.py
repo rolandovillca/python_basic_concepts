@@ -1,36 +1,44 @@
 '''
+Context Managers:
+
+Context managers allow setup and cleanup actions to be taken for objects when
+their creation is wrapped with a with statement. The behavior of the context
+manager is determined by two magic methods:
+
+__enter__(self):
+Defines what the context manager should do at the beginning of the block created
+by the with statement. Note that the return value of __enter__ is bound to the
+target of the with statement, or the name after the as.
+
+__exit__(self, exception_type, exception_value, traceback)
+Defines what the context manager should do after its block has been executed
+(or terminates). It can be used to handle exceptions, perform cleanup,
+or do something always done immediately after the action in the block.
+If the block executes successfully, exception_type, exception_value,
+and traceback will be None. Otherwise, you can choose to handle the exception
+or let the user handle it; if you want to handle it, make sure __exit__ returns
+True after all is said and done. If you don't want the exception to be handled
+by the context manager, just let it happen.
+
+__enter__ and __exit__ can be useful for specific classes that have well-defined
+and common behavior for setup and cleanup. You can also use these methods to
+create generic context managers that wrap other objects.
+
 The defining feature of a context manager is that it has two special methods:
 __enter__() and __exit__(). These are used by the with statement to enter and
-exit the context.
-
-We'll often use context managers to make transient global changes.
-This might be a change to the database transaction status or a change to the locking
-status, something that we want to do and then undo when the transaction is complete.
-
-Using these magic methods (__enter__, __exit__) allows you to implement objects
-which can be used easily with the with statement.
-
-The general idea is that it makes it easy to build code which needs some 'cleandown'
-code executed (think of it as a try-finally block). Some more explanation here.
-
-A useful example could be a database connection object (which then automagically
-closes the connection once the corresponding 'with'-statement goes out of scope:
+exit the context, (think of it as a try-finally block).
 '''
 
 # EXAMPLE 1:
 # ==============================================================================
 class DatabaseConnection(object):
+    # Make database connection and return it.
     def __enter__(self):
-        # Make database connection and return it.
         return self.dbconn
 
+    # Make sure the database connecton gets closed.
     def __exit__(self, exc_type, exc_val, exc_tb):
-        # Make sure the database connecton gets closed.
         self.dbconn.close()
-
-# As explained above, use this object with the with statement
-# (you may need to do from __future__ import with_statement
-# at the top of the file if you're on Python 2.5).
 
 with DatabaseConnection() as mydbconn:
     # Do stuff.
@@ -85,12 +93,10 @@ with MyClass() as x:
     with MyClass() as y:
         print x, 'and', y   # 123 and 456
 
-    # Printed "End of block with 456"
     print x   # 123
-# Printted "End of block with 123"
 
 
-# EXAMPLE 4:
+# EXAMPLE 4: Using contextlib module contains utilities:
 # ==============================================================================
 '''
 The contextlib module contains utilities for working with context managers and the with statement.
