@@ -1,3 +1,11 @@
+'''
+Method of operation of the threading.Thread class: The class threading.Thread
+has a method start(), which can start a Thread.
+
+It triggers off the method run(), which has to be overloaded. The join()
+method makes sure that the main program waits until all threads have terminated.
+'''
+
 import time
 from threading import Thread
 
