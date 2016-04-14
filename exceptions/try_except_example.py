@@ -1,3 +1,8 @@
+'''
+Try, except. In computer programs errors occur. This is expected. It is normal.
+But if something unexpected happens, it is exceptional—and an exception is thrown.
+'''
+
 # import module sys to get the type of exception.
 
 import sys
