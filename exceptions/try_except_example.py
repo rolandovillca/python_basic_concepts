@@ -1,5 +1,7 @@
 '''
-Try, except. In computer programs errors occur. This is expected. It is normal.
+Try and except:
+
+In computer programs errors occur. This is expected. It is normal.
 But if something unexpected happens, it is exceptional—and an exception is thrown.
 '''
 
