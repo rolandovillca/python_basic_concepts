@@ -1,5 +1,5 @@
 '''
-Inner Functions
+Inner Functions - What Are They Good For?
 
 1. Encapsulation
 You use inner functions to protect them from anything happening outside of the
