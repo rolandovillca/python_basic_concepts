@@ -1,54 +1,60 @@
 '''
-The primary use of __init__.py is to initialize Python packages.
-
-The __init__.py files are required to make Python treat the directories as
-containing packages; this is done to prevent directories with a common name,
-such as string, from unintentionally hiding valid modules that occur later
-(deeper) on the module search path. In the simplest case, __init__.py can just
-be an empty file, but it can also execute initialization code for the package
-or set the __all__ variable, described later.
-
-__init__.py will treat the directory it is in as a loadable module.
-
-__init__.py can be empty, as long as it exists.
-It indicates that the directory should be regarded as a package.
-Of course, __init__.py can also set the appropriate content.
-
-The __init__.py file makes Python treat directories containing it as modules.
-Furthermore, this is the first file to be loaded in a module, so you can use it
-to execute code that you want to run each time a module is loaded, or specify
-the submodules to be exported.
-
-In addition to labeling a directory as a Python package and defining __all__,
-__init__.py allows you to define any variable at the package level. Doing so is
-often convenient if a package defines something that will be imported
-frequently, in an API-like fashion. This pattern promotes adherence
-to the Pythonic "flat is better than nested" philosophy.
+What does self do? what is it meant to be? and is it mandatory?
+What does the __init__ method do? why is it necessary?
 '''
 
-# Files named __init__.py are used to mark directories on disk as Python package
-# directories. If you have the files
 
-# mydir/spam/__init__.py
-# mydir/spam/module.py
+# EXAMPLE 1:
+# ==============================================================================
+# here's a simple example I used to understand the difference between a variable
+# declared inside a class, and a variable declared inside an __init__ function:
 
-# Where the mydir is on your path, you can import the code in module.py as
+# __init__ does act like a constructor. You'll need to pass "self" to any class
+# functions as the first argument if you want them to behave as non-static methods.
+# "self" are instance variables for your class.
+
+class MyClass(object):
+     i = 123
+     def __init__(self):
+         self.i = 345
+
+a = MyClass()
+print a.i
+# 345
+
+print MyClass.i
+# 123
+
+
+# EXAMPLE 2:
+# ==============================================================================
+class A(object):
+    def __init__(self):
+        self.x = 'Hello'
+
+    def method_a(self, foo):
+        print self.x + ' ' + foo
 
 '''
-import spam.module
+The self variable represents the instance of the object itself.
 
-or
+Most object-oriented languages pass this as a hidden parameter to the methods
+defined on an object; Python does not. You have to declare it explicitly.
 
-from spam import module
+When you create an instance of the A class and call its methods, it will be
+passed automatically, as in ...
 '''
 
-# If you remove the __init__.py file, Python will no longer look for submodules
-# inside that directory, so attempts to import the module will fail.
-
-# The __init__.py file is usually empty, but can be used to export selected
-# portions of the package under more convenient name, hold convenience functions,
-# etc. Given the example above, the contents of the init module can be accessed as
+a = A()               # We do not pass any argument to the __init__ method
+a.method_a('Sailor!') # We only pass a single argument
 
 '''
-import spam
+The __init__ method is roughly what represents a constructor in Python.
+
+When you call A() Python creates an object for you, and passes it as the first
+parameter to the __init__ method.
+
+Any additional parameters (e.g., A(24, 'Hello')) will also get passed as
+arguments--in this case causing an exception to be raised, since the constructor
+isn't expecting them.
 '''
