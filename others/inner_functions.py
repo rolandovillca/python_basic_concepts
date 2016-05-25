@@ -6,19 +6,21 @@ You use inner functions to protect them from anything happening outside of the
 function, meaning that they are hidden from the global scope.
 
 2. Closures and Factory Functions
-Now we come to the most important reason to use inner functions. All of the
-inner function examples we’ve seen so far have been ordinary functions that
-merely happened to be nested inside another function. In other words,
-we could have defined these functions in another way (as discussed);
-there is no specific reason for why they should be nested.
+Now we come to the most important reason to use inner functions.
+All of the inner function examples we’ve seen so far have been ordinary
+functions that merely happened to be nested inside another function.
+In other words, we could have defined these functions in another way
+(as discussed); there is no specific reason for why they should be nested.
 
-But when it comes to closure, that is not the case: You must utilize nested functions.
+But when it comes to closure, that is not the case: You must utilize nested
+functions.
 
 What’s a closure?
-A closure simply causes the inner function to remember the state of its environment
-when called. Beginners often think that a closure is the inner function,
-when it’s really caused by the inner function. The closure “closes” the local variable
-on the stack and this stays around after the the stack creation has finished executing.
+A closure simply causes the inner function to remember the state of its
+environment when called. Beginners often think that a closure is the inner
+function, when it’s really caused by the inner function. The closure "closes"
+the local variable on the stack and this stays around after the the stack
+creation has finished executing.
 '''
 
 
