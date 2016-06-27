@@ -26,10 +26,13 @@ url = 'http://www.google.com'
 resp = urllib2.urlopen(url)
 print 'Response: ', resp
 print 'Url: ', resp.geturl()
+print 'Code: ', resp.code
+print 'Html: ', resp.read()
 print
 
 headers = resp.info()
 print 'Date: ', headers['date']
+print 'Server: ', headers['server']
 print 'Headers:'
 print headers
 print
