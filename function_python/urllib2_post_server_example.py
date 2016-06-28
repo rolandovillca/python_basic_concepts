@@ -1,3 +1,22 @@
+'''
+-----------------------------------------------------------
+BaseHTTPServer - base classes for implementing web servers:
+-----------------------------------------------------------
+
+Purpose: BaseHTTPServer includes classes that can form the basis of a web server.
+Available In: 1.4 and later
+
+BaseHTTPServer uses classes from SocketServer to create base classes for making
+HTTP servers. HTTPServer can be used directly, but the BaseHTTPRequestHandler is
+intended to be extended to handle each protocol method (GET, POST, etc.).
+
+To add support for an HTTP method in your request handler class, implement the
+method do_METHOD(), replacing METHOD with the name of the HTTP method.
+For example, do_GET(), do_POST(), etc. For consistency, the method takes no
+arguments. All of the parameters for the request are parsed by
+BaseHTTPRequestHandler and stored as instance attributes of the request instance.
+'''
+
 from BaseHTTPServer import BaseHTTPRequestHandler
 import cgi
 

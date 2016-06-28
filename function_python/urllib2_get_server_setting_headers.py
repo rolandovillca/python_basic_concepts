@@ -19,44 +19,24 @@ BaseHTTPRequestHandler and stored as instance attributes of the request instance
 
 from BaseHTTPServer import BaseHTTPRequestHandler
 import urlparse
+import time
 
-# EXAMPLE 1: HTTP GET:
+# EXAMPLE 1: HTTP GET - Setting Headers:
 # ==============================================================================
-# This example request handler illustrates how to return a response to the client
-# and some of the local attributes which can be useful in building the response.
+# The send_header method adds header data to the HTTP response. It takes two
+# arguments, the name of the header and the value.
 
 class GetHandler(BaseHTTPRequestHandler):
+    
     def do_GET(self):
-        parsed_path = urlparse.urlparse(self.path)
-        message_parts = [
-            'CLIENT_VALUES:',
-            'client_address=%s (%s)' % (self.client_address,
-                                        self.address_string()),
-            'command=%s' % self.command,
-            'path=%s' % self.path,
-            'real path=%s' % parsed_path.path,
-            'query=%s' % parsed_path.query,
-            'request_version=%s' % self.request_version,
-            '',
-            'SERVER VALUES:',
-            'server_version=%s' % self.server_version,
-            'sys_version=%s' % self.sys_version,
-            'protocol_version=%s' % self.protocol_version,
-            '',
-            'HEADERS RECEIVED:',
-        ]
-
-        for name, value in sorted(self.headers.items()):
-            message_parts.append('%s=%s' % (name, value.rstrip()))
-        message_parts.append('')
-        message = '\r\n'.join(message_parts)
         self.send_response(200)
+        self.send_header('Last-Modified', self.date_time_string(time.time()))
         self.end_headers()
-        self.wfile.write(message)
+        self.wfile.write('Response body\n')
         return
 
 if __name__ == '__main__':
     from BaseHTTPServer import HTTPServer
     server = HTTPServer(('localhost', 8080), GetHandler)
-    print 'Starting server, use <Ctrl-C> to stop.'
+    print 'Starting server, use <Ctrl-C> to stop'
     server.serve_forever()
