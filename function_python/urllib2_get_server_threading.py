@@ -15,6 +15,8 @@ method do_METHOD(), replacing METHOD with the name of the HTTP method.
 For example, do_GET(), do_POST(), etc. For consistency, the method takes no
 arguments. All of the parameters for the request are parsed by
 BaseHTTPRequestHandler and stored as instance attributes of the request instance.
+
+https://pymotw.com/2/BaseHTTPServer/index.html#module-BaseHTTPServer
 '''
 
 from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler

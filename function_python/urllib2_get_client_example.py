@@ -12,6 +12,8 @@ The urllib2 module provides an updated API for using internet resources
 identified by URLs. It is designed to be extended by individual applications to
 support new protocols or add variations to existing protocols (such as handling
 HTTP basic authentication).
+
+https://pymotw.com/2/BaseHTTPServer/index.html#module-BaseHTTPServer
 '''
 
 import urllib2
