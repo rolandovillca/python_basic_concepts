@@ -13,7 +13,7 @@ identified by URLs. It is designed to be extended by individual applications to
 support new protocols or add variations to existing protocols (such as handling
 HTTP basic authentication).
 
-https://pymotw.com/2/BaseHTTPServer/index.html#module-BaseHTTPServer
+https://pymotw.com/2/urllib2/
 '''
 
 import urllib2
