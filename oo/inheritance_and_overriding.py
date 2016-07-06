@@ -27,7 +27,7 @@ the object you make this latter able to satisfy that method call, so the
 implementations of its ancestors do not come in play.
 '''
 
-# EXAMPLE 1: Method overriding in action:
+# EXAMPLE 2: Method overriding in action:
 # ==============================================================================
 class Parent(object):
     def __init__(self):
@@ -47,7 +47,7 @@ child.get_value()
 Parent.__dict__
 
 
-# EXAMPLE 2: An example of pre-filtering:
+# EXAMPLE 3: An example of pre-filtering:
 # ==============================================================================
 import datetime
 
@@ -70,7 +70,7 @@ t = TimestampLogger()
 t.log('hi!')
 
 
-# EXAMPLE 3: An example of post-filtering:
+# EXAMPLE 4: An example of post-filtering:
 # ==============================================================================
 import os
 
