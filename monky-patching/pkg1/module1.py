@@ -23,3 +23,8 @@ class Person(object):
 
     def set_lastname(self, lastname):
         self.lastname = lastname
+
+    def where_live(self, address, city='Cbba', country='Bolivia'):
+        print 'Address:', address
+        print 'City:', city
+        print 'Country:', country
