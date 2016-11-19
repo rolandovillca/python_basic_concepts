@@ -1,11 +1,11 @@
-import abc
+from abc import ABCMeta, abstractmethod
 
 class Shape(object):
-    __metaclass__ = abc.ABCMeta
+    __metaclass__ = ABCMeta
 
-    @abc.abstractmethod
+    @abstractmethod
     def draw(self):
-        pass
+        raise NotImplementedError()
 
 
 class Rectangle(Shape):
