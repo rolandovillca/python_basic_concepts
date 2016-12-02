@@ -42,6 +42,15 @@ for r in range(5):
 print
 
 
+a1 = lambda a: a**1
+a2 = lambda a: a**2
+a3 = lambda a: a**3
+a4 = lambda a: a**4
+a5 = lambda a: a**5
+lambda_funcs=[a1, a2, a3, a4, a5]
+print map(lambda x: x(2), lambda_funcs)
+
+
 # EXAMPLE 5:
 # ==============================================================================
 def mymap(aFunc, aSeq):
