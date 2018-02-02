@@ -19,4 +19,12 @@ with myclass() as mc:
     print 'body'
     print mc.hello('rolando')
 
-print mc.hello('again')
+# Result:
+# __init__
+# __enter__
+# body
+# hello rolando
+# None
+# __exit__
+# __del__
+

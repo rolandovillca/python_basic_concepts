@@ -21,3 +21,12 @@ with Log('file.log') as logfile:
     print 'Main'
     logfile.logging('Test1')
     logfile.logging('Test2')
+
+# Result:
+# __init__
+# __enter__
+# Main
+# into logging method Test1
+# into logging method Test2
+# __exit__
+
