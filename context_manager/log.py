@@ -6,7 +6,7 @@ class Log:
 
     def logging(self, text):
         print 'into logging method'
-        self.fp.write(text,'\n')
+        self.fp.write(text + '\n')
 
     def __enter__(self):
         print '__enter__'
