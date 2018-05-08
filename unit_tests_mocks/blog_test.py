@@ -2,7 +2,7 @@ from unittest import TestCase
 from mock import patch, Mock
 
 class TestBlog(TestCase):
-    @patch('main.Blog')
+    @patch('blog.Blog')
     def test_blog_posts(self, MockBlog):
         blog = MockBlog()
         blog.posts.return_value = [
