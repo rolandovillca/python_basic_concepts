@@ -7,5 +7,5 @@ setup(name='simple_package',
       author='Rolando Villca',
       author_email='rolandovillca@gmail.com',
       license='MIT',
-      package=['simple_package']
+      package=['simple_package'],
       zip_safe=False)
