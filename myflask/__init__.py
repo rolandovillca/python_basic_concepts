@@ -16,3 +16,17 @@ def create_app(test_config=None):
     else:
         # load the test config if passed in
         app.config.from_mapping
+
+    # ensure the instance folder exists
+    try:
+        os.makedirs(app.instance_path)
+    except OSError as ex:
+        pass
+
+    # a simple page that says hello
+    @app.route('/hello')
+    def hello():
+        return 'Hello World!!!'
+
+    return app
+
